@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script type="text/javascript" src="scripts/d3.v3.js"></script>
+<script type="text/javascript" src="scripts/ICanHaz.min.js" ></script>
+<script type="text/javascript" src="scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="scripts/innersvg.js"></script>
+
+<svg width="920" height="0"></svg>
+
+<script id="row" type="text/html">
+<defs>
+    <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="0" y1="15" x2="0" y2="1">
+        <stop  offset="0" style="stop-color:#78D2FF"/>
+        <stop  offset="1" style="stop-color:#24B6FF"/>
+    </linearGradient>
+</defs>
+<rect y="1" fill="url(#SVGID_1_)" width="173" height="14"/>
+<text transform="translate(143 13)" fill="#FFFFFF" font-family="'Exo-DemiBold'" font-size="13">200</text>
+<rect x="168" y="1" fill="#FF2312" width="5" height="14"/>
+<rect y="1" width="2" height="14"/>
+<rect y="1" opacity="0.2" fill="#FFFFFF" width="173" height="6"/>
+</script>
+
+<script>
+data = [{'value':200}, {'value':100}, {'value':150}, {'value':50}]
+var x = d3.scale.linear()
+    .domain([0, 200])
+    .range([0, 500]);
+    
+var rowHeight = 22;
+
+$(document).ready(function () {
+    var svg = d3.select('svg')            
+        .attr("height", rowHeight*data.length)
+        .selectAll('g.dataRow')
+        .data(data)
+        .enter()  
+        .append('g')
+        .attr("class", "dataRow")
+        .attr('transform', function(d,i) {
+            return "translate(0," + i*rowHeight + ")";
+        })
+        .html(function(d,i) {            
+            return ich.row(d, true);
+        });
+});    
+</script>

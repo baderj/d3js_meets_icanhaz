@@ -5,9 +5,9 @@
 <svg width="550px" height="0px">
 
 <script>
-data = [{'value':50}, {'value':40}, {'value':90}, {'value':70}]
+data = [{'value':200}, {'value':100}, {'value':150}, {'value':50}]
 var x = d3.scale.linear()
-    .domain([0, 100])
+    .domain([0, 200])
     .range([0, 500]);
     
 var rowHeight = 22;
@@ -17,5 +17,8 @@ d3.select("svg")
     .data(data)
     .enter()
     .append("rect")
-    .attr({"width": function(d,i) { return x(d.value);}, "height": rowHeight-2, "x": 10, "y": function(d,i){ return i*rowHeight;}});    
+    .attr({"width": function(d,i) { return x(d.value);}, 
+           "height": rowHeight-2, 
+           "x": 10, 
+           "y": function(d,i){ return i*rowHeight;}});    
 </script>
