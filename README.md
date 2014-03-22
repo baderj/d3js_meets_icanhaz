@@ -1,4 +1,4 @@
-d3js_meets_icanhaz
-==================
+d3.js meets icanhaz
+===================
 
-Templating in d3js with ICanHaz
+Files for the tutorial at http://www.johannesbader.ch/2014/03/templating-in-d3js/
